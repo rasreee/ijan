@@ -40,6 +40,9 @@ const GlobalStyle = createGlobalStyle`
     background: transparent;
   }
 
+  a {
+    text-decoration: none;
+  }
 `;
 
 export default GlobalStyle;

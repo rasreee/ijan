@@ -16,8 +16,8 @@ const LoginPage = () => {
 
   return (
     <Page
-      title="Employees"
-      heading="Employees"
+      title="Employee Portal"
+      heading="Employee Portal"
       description="If you've finished onboarding and already registered your account, you can go ahead and login with your email and password. Otherwise, you can register for an account."
     >
       <Button

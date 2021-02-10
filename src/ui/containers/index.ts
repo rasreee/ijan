@@ -1,2 +1,2 @@
-export { default as Page } from "./Page";
-export { default as Form } from "./Form";
+export * from "./Page";
+export * from "./Form";
