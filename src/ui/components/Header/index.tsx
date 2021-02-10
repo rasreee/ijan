@@ -9,7 +9,7 @@ const Header: React.FC = () => {
   return (
     <Container>
       <StyledHeader>
-        <IconLink src={tokens.iconPaths.brand} />
+        <IconLink src={tokens.iconPaths.miniBrand} />
         <StyledNav>
           <NavLink href="/">Home</NavLink>
           <Spacing height={20} />
