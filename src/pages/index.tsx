@@ -1,5 +1,5 @@
 import React from "react";
-import { Page } from "../containers";
+import { Page } from "@containers";
 
 const IndexPage = () => (
   <Page

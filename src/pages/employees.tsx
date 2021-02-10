@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Button } from "../atoms";
-import { Form, Page } from "../containers";
+import { Button } from "../ui/atoms";
+import { Form, Page } from "@containers";
 const initialState = { email: "", password: "" };
 
 const LoginPage = () => {

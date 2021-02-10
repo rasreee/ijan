@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "@containers": ["./ui/containers"],
+      "@components": ["./ui/components"],
+      "@atoms": ["./ui/atoms"],
+      "@molecules": ["./ui/molecules"],
+      "@basics": ["./ui/basics"],
+      "@assets": ["./ui/assets"],
+      "@theme": ["./ui/theme"],
+      "@configs": ["./lib/configs"],
+      "@services": ["./lib/services"],
+      "@types": ["./lib/types"],
+      "@utils": ["./lib/utils"],
+      "@hooks": ["./lib/hooks"],
+      "@contexts": ["./lib/contexts"]
+    }
+  }
+}

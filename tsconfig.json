@@ -1,4 +1,6 @@
 {
+  "extends": "./tsconfig.paths.json",
+
   "compilerOptions": {
     "allowJs": true,
     "alwaysStrict": true,

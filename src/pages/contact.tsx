@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Page } from "../containers";
+import { Form, Page } from "@containers";
 
 const initialState = { name: "", email: "", message: "" };
 

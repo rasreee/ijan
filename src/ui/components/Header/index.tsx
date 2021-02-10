@@ -1,8 +1,7 @@
-import Link from "next/link";
 import React from "react";
 import { Spacing } from "../../atoms";
-import IconLink from "../molecules/IconLink";
-import NavLink from "../molecules/NavLink";
+import IconLink from "../../molecules/IconLink";
+import NavLink from "../../molecules/NavLink";
 
 import { Container, StyledHeader, StyledNav } from "./styles";
 
