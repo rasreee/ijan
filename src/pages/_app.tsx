@@ -4,7 +4,7 @@ import React from "react";
 import { ThemeProvider } from "styled-components";
 
 import { FirebaseContext } from "@contexts";
-import { GlobalStyle, tokens } from "@theme";
+import { GlobalStyle, tokens } from "ui/styled/theme";
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (

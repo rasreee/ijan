@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Button } from "../ui/atoms";
+import { Button } from "@atoms";
 import { Form, Page } from "@containers";
+import { Row } from "@basics";
 const initialState = { email: "", password: "" };
 
 const LoginPage = () => {
@@ -16,37 +17,39 @@ const LoginPage = () => {
 
   return (
     <Page
-      title="Employee Portal"
-      heading="Employee Portal"
+      title="Portal"
+      heading="Portal (Employees Only)"
       description="If you've finished onboarding and already registered your account, you can go ahead and login with your email and password. Otherwise, you can register for an account."
     >
-      <Button
-        onClick={(e) => {
-          e.preventDefault();
-          if (!showLogin) {
-            setShowLogin(!showLogin);
-          }
-        }}
-        disabled={!showLogin}
-        primary
-      >
-        <Button.Label>Login</Button.Label>
-      </Button>
+      <Row>
+        <Button
+          onClick={(e) => {
+            e.preventDefault();
+            if (!showLogin) {
+              setShowLogin(!showLogin);
+            }
+          }}
+          disabled={!showLogin}
+          primary
+        >
+          <Button.Label>Login</Button.Label>
+        </Button>
 
-      <Button
-        title="Register"
-        onClick={(e) => {
-          e.preventDefault();
-          if (showLogin) {
-            ``;
-            setShowLogin(!showLogin);
-          }
-        }}
-        disabled={showLogin}
-        primary
-      >
-        <Button.Label>Register</Button.Label>
-      </Button>
+        <Button
+          title="Register"
+          onClick={(e) => {
+            e.preventDefault();
+            if (showLogin) {
+              ``;
+              setShowLogin(!showLogin);
+            }
+          }}
+          disabled={showLogin}
+          primary
+        >
+          <Button.Label>Register</Button.Label>
+        </Button>
+      </Row>
 
       {showLogin && (
         <Page.Section title="Login">
