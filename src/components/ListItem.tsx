@@ -1,14 +1,13 @@
 import React from 'react'
 import Link from 'next/link'
 
-import { User } from '../interfaces'
 
 type Props = {
-  data: User
+  data: any
 }
 
 const ListItem = ({ data }: Props) => (
-  <Link href="/users/[id]" as={`/users/${data.id}`}>
+  <Link href="/">
     <a>
       {data.id}: {data.name}
     </a>
