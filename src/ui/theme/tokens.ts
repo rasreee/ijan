@@ -1,19 +1,18 @@
 const colors = {
-    offBlack: '#1C1C20',
-    offWhite: '#FEF9F4',
-    lilac: '#7E97FF',
-    green: '#55BCA7',
-    apricot: '#FDA867',
-    error: '#fa6f6f',
-}
+  light: "#F6F8FC",
+  dark: "#1B263B",
+  bluePrimary: "#114BF5",
+  gray: "#6E7E94",
+  lightBluePurple: "#BFCCFA",
+  ruby: "#DA4167",
+};
 const fonts = {
-    recursive: 'Recursive',
-    poppins: 'Poppins',
-    roboto: 'Roboto Mono',
-}
+  montserrat: "Montserrat",
+  raleway: "Raleway",
+};
 const theme = {
-    colors: colors,
-    fonts: fonts,
-}
+  colors: colors,
+  fonts: fonts,
+};
 
-export default theme
+export default theme;
