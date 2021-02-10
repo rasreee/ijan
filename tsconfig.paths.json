@@ -9,7 +9,7 @@
       "@basics": ["./ui/basics"],
       "@assets": ["./ui/assets"],
       "@theme": ["./ui/theme"],
-      "@configs": ["./lib/configs"],
+      "@configs": ["./configs"],
       "@services": ["./lib/services"],
       "@types": ["./lib/types"],
       "@utils": ["./lib/utils"],

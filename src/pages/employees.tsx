@@ -38,6 +38,7 @@ const LoginPage = () => {
         onClick={(e) => {
           e.preventDefault();
           if (showLogin) {
+            ``;
             setShowLogin(!showLogin);
           }
         }}
