@@ -5,7 +5,6 @@ const initialState = { email: "", password: "" };
 
 const LoginPage = () => {
   const [showLogin, setShowLogin] = useState(false);
-  const [showRegister, setShowRegister] = useState(false);
   const [state, setState] = useState(initialState);
 
   const updateState = (name: string, value: string) => {
@@ -24,13 +23,28 @@ const LoginPage = () => {
       <Button
         onClick={(e) => {
           e.preventDefault();
-          setShowLogin(!showLogin);
-          if (showRegister) {
-            setShowRegister(!showRegister);
+          if (!showLogin) {
+            setShowLogin(!showLogin);
           }
         }}
+        disabled={!showLogin}
+        primary
       >
         <Button.Label>Login</Button.Label>
+      </Button>
+
+      <Button
+        title="Register"
+        onClick={(e) => {
+          e.preventDefault();
+          if (showLogin) {
+            setShowLogin(!showLogin);
+          }
+        }}
+        disabled={showLogin}
+        primary
+      >
+        <Button.Label>Register</Button.Label>
       </Button>
 
       {showLogin && (
@@ -50,19 +64,7 @@ const LoginPage = () => {
           <Form.Button onClick={trySubmit}>submit</Form.Button>
         </Page.Section>
       )}
-      <Button
-        title="Register"
-        onClick={(e) => {
-          e.preventDefault();
-          setShowRegister(!showRegister);
-          if (showLogin) {
-            setShowLogin(!showLogin);
-          }
-        }}
-      >
-        <Button.Label>Register</Button.Label>
-      </Button>
-      {showRegister && (
+      {!showLogin && (
         <Page.Section title="Register">
           <Form.Input
             label="Email"

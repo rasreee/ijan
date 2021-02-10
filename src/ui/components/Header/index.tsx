@@ -11,8 +11,6 @@ const Header: React.FC = () => {
       <StyledHeader>
         <IconLink src={tokens.iconPaths.miniBrand} />
         <StyledNav>
-          <NavLink href="/">Home</NavLink>
-          <Spacing height={20} />
           <NavLink href="/about">About</NavLink>
           <Spacing height={20} />
           <NavLink href="/employees">Employees</NavLink>

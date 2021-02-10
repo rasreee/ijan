@@ -1,10 +1,24 @@
 import React from "react";
 
-import { Container, Label } from "./styles";
+import {
+  PrimaryContainer,
+  SecondaryContainer,
+  Label,
+  DisabledContainer,
+} from "./styles";
 interface Props extends React.HTMLAttributes<HTMLButtonElement> {
   children: any;
+  primary?: boolean;
+  disabled?: boolean;
 }
-export default function Button({ children, ...props }: Props) {
+export default function Button({
+  children,
+  primary = false,
+  disabled = false,
+  ...props
+}: Props) {
+  let Container = primary ? PrimaryContainer : SecondaryContainer;
+  if (disabled) Container = DisabledContainer;
   return <Container {...props}>{children}</Container>;
 }
 
