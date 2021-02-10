@@ -1,5 +1,4 @@
-import Document, { Html, Main, NextScript } from "next/document";
-import Head from "next/head";
+import Document, { Html, Head, Main, NextScript } from "next/document";
 import React from "react";
 
 export default class MyDocument extends Document {
@@ -11,7 +10,7 @@ export default class MyDocument extends Document {
           <link rel="icon" href="/favicon.ico" />
           <link rel="shortcut icon" href="/favicon.ico" />
           <link
-            href="https://fonts.googleapis.com/css?family=Recursive|Poppins|Roboto+Mono"
+            href="https://fonts.googleapis.com/css?family=Montserrat|Rubik|Raleway"
             rel="stylesheet"
           />
         </Head>
