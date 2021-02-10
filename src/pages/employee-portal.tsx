@@ -48,7 +48,7 @@ const LoginPage = () => {
         </Page.Section>
       )}
       {!showLogin && (
-        <Page.Section title="Register">
+        <Page.Section>
           <Form.Input
             label="Email"
             onChange={updateState}
