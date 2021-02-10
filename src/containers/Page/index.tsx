@@ -3,7 +3,14 @@ import React from "react";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 
-import { Container, Heading, Description, Body } from "./styles";
+import {
+  Container,
+  Heading,
+  Description,
+  Body,
+  Section,
+  SectionTitle,
+} from "./styles";
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
   title: string;
@@ -12,13 +19,13 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
   children?: any;
 }
 
-const Page: React.FC<Props> = ({
+export default function Page({
   title,
   heading,
   description = "",
   children,
   ...props
-}) => {
+}: Props) {
   return (
     <Container {...props}>
       <Head>
@@ -35,6 +42,16 @@ const Page: React.FC<Props> = ({
       <Footer />
     </Container>
   );
+}
+interface SectionProps extends React.HTMLAttributes<HTMLDivElement> {
+  children: any;
+  title?: string;
+}
+Page.Section = function ({ title, children, ...props }: SectionProps) {
+  return (
+    <Section {...props}>
+      <SectionTitle>{title}</SectionTitle>
+      <>{children}</>
+    </Section>
+  );
 };
-
-export default Page;

@@ -16,9 +16,9 @@ const Header: React.FC = () => {
           <Spacing height={20} />
           <NavLink href="/about">About</NavLink>
           <Spacing height={20} />
-          <NavLink href="/contact">Contact</NavLink>
+          <NavLink href="/employees">Employees</NavLink>
           <Spacing height={20} />
-          <NavLink href="/login">Login</NavLink>
+          <NavLink href="/contact">Contact</NavLink>
         </StyledNav>
       </StyledHeader>
     </Container>

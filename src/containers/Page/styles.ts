@@ -9,3 +9,14 @@ export const Body = styled.div`
 export const Heading = styled.h1``;
 
 export const Description = styled.p``;
+export const Section = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 24px 0;
+`;
+export const SectionTitle = styled.span`
+  font-size: 28px;
+  text-align: center;
+`;
