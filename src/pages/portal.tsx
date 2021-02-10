@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { Button, Spacing } from "@atoms";
+import { Spacing } from "@atoms";
 import { Form, Page } from "@containers";
-import { Row, RowCentered } from "@basics";
+import { RowCentered } from "@bases";
 import { ToggleButton } from "@molecules";
 const initialState = { email: "", password: "" };
 
-const LoginPage = () => {
-  const [showLogin, setShowLogin] = useState(false);
+const PortalPage = () => {
+  const [showLogin, setShowLogin] = useState(true);
   const [state, setState] = useState(initialState);
 
   const updateState = (name: string, value: string) => {
@@ -33,12 +33,20 @@ const LoginPage = () => {
       {showLogin && (
         <Page.Section>
           <Form.Input
+            name="email"
             label="Email"
             onChange={updateState}
             value={state.email}
             required
           />
+          <EmailTextField
+            onChange={(_, value) => {
+              const newState = { ...state, email: value };
+              setState(newState);
+            }}
+          />
           <Form.Input
+            name="password"
             label="Password"
             onChange={updateState}
             value={state.password}
@@ -62,7 +70,7 @@ const LoginPage = () => {
             required
           />
           <Form.Input
-            label="Confirm password"
+            label="Confirm Password"
             onChange={updateState}
             value={state.password}
             required
@@ -74,4 +82,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default PortalPage;

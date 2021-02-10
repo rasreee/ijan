@@ -9,11 +9,11 @@
       "@theme": ["./ui/styled/theme"],
       "@configs": ["./configs"],
       "@services": ["./lib/services"],
-      "@types": ["./lib/types"],
       "@utils": ["./lib/utils"],
       "@hooks": ["./lib/hooks"],
       "@contexts": ["./lib/contexts"],
-      "@basics": ["./ui/styled/basics"]
+      "@bases": ["./ui/styled/bases"],
+      "@templates": ["./ui/styled/templates"]
     }
   }
 }

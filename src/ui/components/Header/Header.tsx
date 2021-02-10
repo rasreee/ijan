@@ -3,7 +3,7 @@ import { Spacing } from "@atoms";
 import { IconLink, NavLink } from "@molecules";
 
 import { Container, StyledHeader, StyledNav } from "./styles";
-import { tokens } from "ui/styled/theme";
+import { tokens } from "@theme";
 
 const Header: React.FC = () => {
   return (
@@ -13,7 +13,7 @@ const Header: React.FC = () => {
         <StyledNav>
           <NavLink href="/about">About</NavLink>
           <Spacing height={100} />
-          <NavLink href="/employee-portal">Portal</NavLink>
+          <NavLink href="/portal">Portal</NavLink>
           <Spacing height={100} />
           <NavLink href="/contact">Contact</NavLink>
         </StyledNav>

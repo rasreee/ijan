@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Column, Row } from "./basic-containers";
+import { Column, Row } from "./containers";
 
 export const RowCentered = styled(Row)`
   justify-content: center;

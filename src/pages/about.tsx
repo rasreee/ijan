@@ -11,7 +11,7 @@ const AboutPage = () => {
       heading="About iJan"
       description="[INSERT ABOUT DESCRIPTION]"
     >
-      <Text value="Have any questions (i.e. pricing, logistics, etc.)?" />
+      <Paragraph value="Have any questions (i.e. pricing, logistics, etc.)?" />
       <Button
         onClick={(e) => {
           e.preventDefault();
