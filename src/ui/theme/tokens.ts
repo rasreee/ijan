@@ -9,10 +9,15 @@ const colors = {
 const fonts = {
   montserrat: "Montserrat",
   raleway: "Raleway",
+  rubik: "Rubik",
 };
-const theme = {
+const tokens = {
   colors: colors,
   fonts: fonts,
+  iconPaths: {
+    brand: "/logo.svg",
+    miniBrand: "/mini-logo.svg",
+  },
 };
 
-export default theme;
+export default tokens;

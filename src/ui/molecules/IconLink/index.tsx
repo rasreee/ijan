@@ -1,11 +1,14 @@
 import React from "react";
-import { Icon } from "../../atoms";
 import { Container } from "./styles";
-
-const IconLink: React.FC = () => {
+interface Props extends React.HTMLAttributes<HTMLImageElement> {
+  src: string;
+  children?: any;
+  size?: number;
+}
+const IconLink: React.FC<Props> = ({ src, size = 48, children, ...props }) => {
   return (
-    <Container>
-      <Icon />
+    <Container src={src} height={size} width={size} {...props}>
+      {children}
     </Container>
   );
 };

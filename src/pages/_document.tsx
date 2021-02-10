@@ -1,4 +1,5 @@
 import Document, { DocumentContext } from "next/document";
+import Head from "next/head";
 import React from "react";
 import { ServerStyleSheet } from "styled-components";
 
@@ -22,7 +23,7 @@ export default class MyDocument extends Document {
             <Head>
               <meta charSet="utf-8" />
               <link
-                href="https://fonts.googleapis.com/css?family=Montserrat|Raleway"
+                href="https://fonts.googleapis.com/css?family=Recursive|Poppins|Roboto+Mono"
                 rel="stylesheet"
               />
             </Head>

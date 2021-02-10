@@ -1,15 +1,15 @@
 import React from "react";
-import { Spacing } from "../../atoms";
-import IconLink from "../../molecules/IconLink";
-import NavLink from "../../molecules/NavLink";
+import { Spacing } from "@atoms";
+import { IconLink, NavLink } from "@molecules";
 
 import { Container, StyledHeader, StyledNav } from "./styles";
+import { tokens } from "@theme";
 
 const Header: React.FC = () => {
   return (
     <Container>
       <StyledHeader>
-        <IconLink />
+        <IconLink src={tokens.iconPaths.brand} />
         <StyledNav>
           <NavLink href="/">Home</NavLink>
           <Spacing height={20} />
