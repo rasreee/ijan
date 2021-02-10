@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button } from "@atoms";
+import { Button, Spacing } from "@atoms";
 import { Form, Page } from "@containers";
 import { Row, RowCentered } from "@basics";
 import { ToggleButton } from "@molecules";
@@ -26,6 +26,7 @@ const LoginPage = () => {
     >
       <RowCentered>
         <ToggleButton label="Login" onToggle={toggle} disabled={!showLogin} />
+        <Spacing width={24} />
         <ToggleButton label="Register" onToggle={toggle} disabled={showLogin} />
       </RowCentered>
 
