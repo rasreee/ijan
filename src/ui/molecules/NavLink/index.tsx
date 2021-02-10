@@ -1,7 +1,7 @@
-import Link from 'next/link';
-import React from 'react';
+import Link from "next/link";
+import React from "react";
 
-import { Container } from './styles';
+import { Container } from "./styles";
 
 interface Props {
   href: string;
@@ -11,7 +11,9 @@ interface Props {
 const NavLink: React.FC<Props> = ({ href, children }) => {
   return (
     <Container>
-      <Link href={href}><a>{children}</a></Link>
+      <Link href={href}>
+        <a>{children}</a>
+      </Link>
     </Container>
   );
 };

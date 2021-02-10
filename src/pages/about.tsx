@@ -1,7 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
 import { Page } from "@containers";
-import { Text, Button } from "../ui/atoms";
+import { Text, Button } from "@atoms";
 
 const AboutPage = () => {
   const router = useRouter();
@@ -11,7 +11,7 @@ const AboutPage = () => {
       heading="About iJan"
       description="[INSERT ABOUT DESCRIPTION]"
     >
-      <Paragraph value="Have any questions (i.e. pricing, logistics, etc.)?" />
+      <Text value="Have any questions (i.e. pricing, logistics, etc.)?" />
       <Button
         onClick={(e) => {
           e.preventDefault();

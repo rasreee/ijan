@@ -1,1 +1,1 @@
-export { default as FirebaseContext } from "./firebase-context";
+export * from "./firebase-context";

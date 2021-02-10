@@ -11,7 +11,9 @@ const ContactPage = () => {
     setState(newState);
   };
 
-  const trySubmit = () => console.log("trySubmit");
+  const trySubmit = () => {
+    console.log("trySubmit");
+  };
 
   return (
     <Page

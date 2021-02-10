@@ -22,6 +22,8 @@ export default class MyDocument extends Document {
           <>
             <Head>
               <meta charSet="utf-8" />
+              <link rel="icon" href="/favicon.ico" />
+              <link rel="shortcut icon" href="/favicon.ico" />
               <link
                 href="https://fonts.googleapis.com/css?family=Recursive|Poppins|Roboto+Mono"
                 rel="stylesheet"
