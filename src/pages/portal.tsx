@@ -3,14 +3,15 @@ import { Spacing } from "@atoms";
 import { Form, Page } from "@containers";
 import { RowCentered } from "@bases";
 import { ToggleButton } from "@molecules";
-const initialState = { email: "", password: "" };
+const initialState = { email: "", password: "", confirmPassword: "" };
 
 const PortalPage = () => {
   const [showLogin, setShowLogin] = useState(true);
   const [state, setState] = useState(initialState);
 
-  const updateState = (name: string, value: string) => {
+  const updateState: InputChangeEventHandler = ({ name, value }) => {
     const newState = { ...state, [name]: value };
+    console.log("updateState: ", JSON.stringify(newState));
     setState(newState);
   };
 
@@ -46,13 +47,6 @@ const PortalPage = () => {
             value={state.password}
             required
           />
-          <Form.Input
-            name="confirmPassword"
-            label="Confirm Password"
-            onChange={updateState}
-            value={state.password}
-            required
-          />
           <Form.Button onClick={trySubmit}>submit</Form.Button>
         </Page.Section>
       )}
@@ -76,7 +70,7 @@ const PortalPage = () => {
             name="confirmPassword"
             label="Confirm Password"
             onChange={updateState}
-            value={state.password}
+            value={state.confirmPassword}
             required
           />
           <Form.Button onClick={trySubmit}>submit</Form.Button>

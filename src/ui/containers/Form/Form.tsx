@@ -8,13 +8,13 @@ export default function Form({ children, ...props }: BaseComponentProps) {
   return <Container {...props}>{children}</Container>;
 }
 
-interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
+interface InputProps {
   value: string;
   label: string;
   name: string;
   placeholder?: string;
   type?: string;
-  onChange: any;
+  onChange: InputChangeEventHandler;
   required?: boolean;
 }
 
@@ -31,7 +31,7 @@ Form.Input = function FormInput({
   return (
     <Column {...props}>
       <Input.Label required={required} value={label} />
-      <Input name={type} type={type} value={value} onChange={onChange} />
+      <Input name={name} type={type} value={value} onChange={onChange} />
     </Column>
   );
 };
