@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Button } from "@atoms";
 import { Form, Page } from "@containers";
-import { Row } from "@basics";
+import { Row, RowCentered } from "@basics";
+import { ToggleButton } from "@molecules";
 const initialState = { email: "", password: "" };
 
 const LoginPage = () => {
@@ -15,44 +16,21 @@ const LoginPage = () => {
 
   const trySubmit = () => console.log("trySubmit");
 
+  const toggle = () => setShowLogin(!showLogin);
+
   return (
     <Page
       title="Portal"
       heading="Portal (Employees Only)"
       description="If you've finished onboarding and already registered your account, you can go ahead and login with your email and password. Otherwise, you can register for an account."
     >
-      <Row>
-        <Button
-          onClick={(e) => {
-            e.preventDefault();
-            if (!showLogin) {
-              setShowLogin(!showLogin);
-            }
-          }}
-          disabled={!showLogin}
-          primary
-        >
-          <Button.Label>Login</Button.Label>
-        </Button>
-
-        <Button
-          title="Register"
-          onClick={(e) => {
-            e.preventDefault();
-            if (showLogin) {
-              ``;
-              setShowLogin(!showLogin);
-            }
-          }}
-          disabled={showLogin}
-          primary
-        >
-          <Button.Label>Register</Button.Label>
-        </Button>
-      </Row>
+      <RowCentered>
+        <ToggleButton label="Login" onToggle={toggle} disabled={!showLogin} />
+        <ToggleButton label="Register" onToggle={toggle} disabled={showLogin} />
+      </RowCentered>
 
       {showLogin && (
-        <Page.Section title="Login">
+        <Page.Section>
           <Form.Input
             label="Email"
             onChange={updateState}
