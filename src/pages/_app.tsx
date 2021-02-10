@@ -1,4 +1,4 @@
-import firebase from "firebase";
+import firebase from "firebase/app";
 import { AppProps } from "next/app";
 import React from "react";
 import { ThemeProvider } from "styled-components";

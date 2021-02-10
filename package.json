@@ -5,6 +5,7 @@
     "killall": "killall -9 node",
     "dev": "cross-env NODE_OPTIONS='--inspect' next",
     "build": "rm -rf ./build && next build",
+    "next:build": "next build",
     "start": "next start -p $PORT",
     "deploy": "NODE_ENV='production' && yarn build && gcloud app deploy",
     "export": "next export",
