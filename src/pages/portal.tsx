@@ -39,15 +39,16 @@ const PortalPage = () => {
             value={state.email}
             required
           />
-          <EmailTextField
-            onChange={(_, value) => {
-              const newState = { ...state, email: value };
-              setState(newState);
-            }}
-          />
           <Form.Input
             name="password"
             label="Password"
+            onChange={updateState}
+            value={state.password}
+            required
+          />
+          <Form.Input
+            name="confirmPassword"
+            label="Confirm Password"
             onChange={updateState}
             value={state.password}
             required
@@ -58,18 +59,21 @@ const PortalPage = () => {
       {!showLogin && (
         <Page.Section>
           <Form.Input
+            name="email"
             label="Email"
             onChange={updateState}
             value={state.email}
             required
           />
           <Form.Input
+            name="password"
             label="Password"
             onChange={updateState}
             value={state.password}
             required
           />
           <Form.Input
+            name="confirmPassword"
             label="Confirm Password"
             onChange={updateState}
             value={state.password}

@@ -36,7 +36,7 @@ export default function Input({
 type LabelProps = { value: string; required?: boolean };
 
 Input.Label = function ({ required = false, value, ...props }: LabelProps) {
-  return <Label {...props} required={required} value={value} />;
+  return <Label {...props} required={required} value={value} size={16} />;
 };
 
 Input.Container = function ({ children, ...props }: BaseComponentProps) {

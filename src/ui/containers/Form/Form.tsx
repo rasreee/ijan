@@ -4,11 +4,7 @@ import React from "react";
 
 import { Container, Button, ButtonContainer } from "./styles";
 
-interface Props extends React.HTMLAttributes<HTMLDivElement> {
-  children: any;
-}
-
-export default function Form({ children, ...props }: Props) {
+export default function Form({ children, ...props }: BaseComponentProps) {
   return <Container {...props}>{children}</Container>;
 }
 
@@ -33,9 +29,9 @@ Form.Input = function FormInput({
   ...props
 }: InputProps) {
   return (
-    <Column>
+    <Column {...props}>
+      <Input.Label required={required} value={label} />
       <Input name={type} type={type} value={value} onChange={onChange} />
-      <Input.Label required={required}>{label}</Input.Label>
     </Column>
   );
 };
@@ -54,5 +50,26 @@ Form.Button = function FormButton({
         {children}
       </Button>
     </ButtonContainer>
+  );
+};
+interface Props {
+  name: string;
+  value: string;
+  label: string;
+  onChange: InputChangeEventHandler;
+  required?: boolean;
+}
+Form.TextField = function TextField({
+  name,
+  value,
+  label,
+  required = false,
+  onChange,
+}: Props) {
+  return (
+    <Input.Container>
+      <Input.Label required={required} value={label} />
+      <Input name={name} value={value} type="text" onChange={onChange} />
+    </Input.Container>
   );
 };

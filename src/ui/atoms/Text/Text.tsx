@@ -5,9 +5,14 @@ import { Container } from "./styles";
 interface Props extends React.HTMLAttributes<HTMLSpanElement> {
   value: string;
   color?: string;
+  size?: number;
 }
-const Text: React.FC<Props> = ({ value, color = tokens.colors.dark }) => {
-  return <Container color={color}>{value}</Container>;
+const Text: React.FC<Props> = ({ value, color = tokens.colors.dark, size }) => {
+  return (
+    <Container size={size} color={color}>
+      {value}
+    </Container>
+  );
 };
 
 export default Text;
