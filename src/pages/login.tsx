@@ -1,15 +1,13 @@
-import Link from 'next/link'
-import Layout from '../components/Layout'
+import React from "react";
+import { Page } from "../containers";
 
 const LoginPage = () => (
-    <Layout title="Employee Login">
-        <h1>Employee Login</h1>
-        <p>
-            <Link href="/about">
-                <a>About</a>
-            </Link>
-        </p>
-    </Layout>
-)
+  <Page
+    title="Login (employees)"
+    heading="Employee Login"
+    description="If you are an employee, log in with your email and password to your
+      Employee Portal."
+  ></Page>
+);
 
-export default LoginPage
+export default LoginPage;

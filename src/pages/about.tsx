@@ -1,16 +1,12 @@
-import Link from 'next/link'
-import Layout from '../components/Layout'
+import React from "react";
+import { Page } from "../containers";
 
 const AboutPage = () => (
-  <Layout title="About | Next.js + TypeScript Example">
-    <h1>About</h1>
-    <p>This is the about page</p>
-    <p>
-      <Link href="/">
-        <a>Go home</a>
-      </Link>
-    </p>
-  </Layout>
-)
+  <Page
+    title="About iJan"
+    heading="About iJan"
+    description="For any inquiries, such as quotes, please fill out the form below, and we will try our best get back to you within 24 hours. Otherwise, feel free to leave us a voicemail at (470) 266-7770."
+  ></Page>
+);
 
-export default AboutPage
+export default AboutPage;

@@ -1,15 +1,12 @@
-import Link from 'next/link'
-import Layout from '../components/Layout'
+import React from "react";
+import { Page } from "../containers";
 
 const IndexPage = () => (
-  <Layout title="Home | Next.js + TypeScript Example">
-    <h1>Hello Next.js 👋</h1>
-    <p>
-      <Link href="/about">
-        <a>About</a>
-      </Link>
-    </p>
-  </Layout>
-)
+  <Page
+    title="About iJan"
+    heading="About iJan"
+    description="For any inquiries, such as quotes, please fill out the form below, and we will try our best get back to you within 24 hours. Otherwise, feel free to leave us a voicemail at (470) 266-7770."
+  ></Page>
+);
 
-export default IndexPage
+export default IndexPage;

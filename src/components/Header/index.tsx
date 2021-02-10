@@ -1,10 +1,10 @@
-import Link from 'next/link';
-import React from 'react';
-import { Spacing } from '../atoms';
-import IconLink from '../molecules/IconLink';
-import NavLink from '../molecules/NavLink';
+import Link from "next/link";
+import React from "react";
+import { Spacing } from "../atoms";
+import IconLink from "../molecules/IconLink";
+import NavLink from "../molecules/NavLink";
 
-import { Container, StyledHeader, StyledNav } from './styles';
+import { Container, StyledHeader, StyledNav } from "./styles";
 
 const Header: React.FC = () => {
   return (
@@ -18,7 +18,7 @@ const Header: React.FC = () => {
           <Spacing height={20} />
           <NavLink href="/contact">Contact</NavLink>
           <Spacing height={20} />
-          <NavLink href="/employees">Employees</NavLink>
+          <NavLink href="/login">Login</NavLink>
         </StyledNav>
       </StyledHeader>
     </Container>
