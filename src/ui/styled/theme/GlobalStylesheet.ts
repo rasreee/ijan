@@ -19,7 +19,6 @@ const GlobalStyle = createGlobalStyle`
     overscroll-behavior: none;
   }
 
-
   header {
     margin: 0;
     align-items: center;

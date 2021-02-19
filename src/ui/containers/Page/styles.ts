@@ -5,6 +5,7 @@ export const Container = styled.div`
 `;
 export const Body = styled.div`
   position: relative;
+  padding: 0 32px;
 `;
 export const Heading = styled.h1``;
 
