@@ -1,8 +1,8 @@
-import { Input } from "@atoms";
+import { Button, Input } from "@atoms";
 import { Column } from "@bases";
 import React from "react";
 
-import { Container, Button, ButtonContainer } from "./styles";
+import { Container } from "./styles";
 
 export default function Form({ children, ...props }: BaseComponentProps) {
   return <Container {...props}>{children}</Container>;
@@ -45,11 +45,22 @@ Form.Button = function FormButton({
   ...props
 }: ButtonProps) {
   return (
-    <ButtonContainer>
-      <Button onClick={onClick} {...props}>
-        {children}
-      </Button>
-    </ButtonContainer>
+    <Button
+      primary
+      onClick={onClick}
+      style={{
+        margin: "24px 0px",
+        width: "160px",
+        height: "40px",
+        display: "flex",
+        justifyContent: "center",
+        flexGrow: 1,
+        cursor: "pointer",
+      }}
+      {...props}
+    >
+      {children}
+    </Button>
   );
 };
 interface Props {

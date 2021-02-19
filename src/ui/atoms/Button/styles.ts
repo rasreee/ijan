@@ -17,6 +17,7 @@ export const DisabledContainer = styled.button`
   height: 48px;
   width: 200px;
   opacity: 40%;
+  cursor: pointer;
 `;
 
 export const Label = styled.span`
