@@ -45,5 +45,6 @@
     "*.log": true,
     "node_modules": true,
     "build": true
-  }
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
 }
