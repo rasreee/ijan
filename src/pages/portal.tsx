@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Spacing } from '@atoms';
 import { Form, Page } from '@containers';
 import { RowCentered } from '@bases';
 import { ToggleButton } from '@molecules';
 import { Auth } from '@services';
-import { useFirebase } from '@hooks';
 import { useRouter } from 'next/router';
 
 type State = {
@@ -13,7 +12,6 @@ type State = {
 	confirmPassword: string;
 	isLoading: boolean;
 	error: string;
-	isPageLoading: boolean;
 };
 
 const initialState: State = {
@@ -21,25 +19,13 @@ const initialState: State = {
 	password: '',
 	confirmPassword: '',
 	isLoading: false,
-	error: '',
-	isPageLoading: true
+	error: ''
 };
 
 const PortalPage = () => {
 	const router = useRouter();
 	const [isLogin, setShowLogin] = useState(true);
 	const [state, setState] = useState<State>(initialState);
-	const { loadingFirebase } = useFirebase();
-
-	useEffect(() => {
-		setState((current) => ({
-			...current,
-			isPageLoading: !loadingFirebase
-		}));
-		return () => console.log('state: ', state);
-	}, [loadingFirebase]);
-
-	if (state.isPageLoading) return <div>loading...</div>;
 
 	const trySubmitLogin = async () => {
 		console.log('trySubmitLogin: ', state);
@@ -92,8 +78,6 @@ const PortalPage = () => {
 		}
 	};
 
-	const trySubmit = () => (isLogin ? trySubmitLogin() : trySubmitRegister());
-
 	const toggle = () => setShowLogin(!isLogin);
 
 	const updateState: InputChangeEventHandler = ({ name, value }) => {
@@ -138,7 +122,10 @@ const PortalPage = () => {
 							required
 						/>
 						<Form.Button
-							onClick={trySubmit}
+							onClick={(e) => {
+								e.preventDefault();
+								trySubmitLogin();
+							}}
 							isLoading={state.isLoading}
 						>
 							submit
@@ -171,7 +158,10 @@ const PortalPage = () => {
 							required
 						/>
 						<Form.Button
-							onClick={trySubmit}
+							onClick={(e) => {
+								e.preventDefault();
+								trySubmitRegister();
+							}}
 							isLoading={state.isLoading}
 						>
 							submit

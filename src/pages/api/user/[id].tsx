@@ -1,8 +1,8 @@
-import { client } from '@configs';
+import firebase from 'firebase/app';
 import { mapToUser } from '@utils';
 import { NextApiRequest, NextApiResponse } from 'next';
 
-export async function userHandler(
+export default async function userHandler(
 	{ query }: NextApiRequest,
 	res: NextApiResponse
 ) {
@@ -11,7 +11,7 @@ export async function userHandler(
 		return res.status(400).send({ message: 'Passed in invalid userId' });
 	}
 	try {
-		const snapshot = await client
+		const snapshot = await firebase
 			.firestore()
 			.collection('users')
 			.doc(id)
@@ -23,7 +23,7 @@ export async function userHandler(
 		}
 		const data = await snapshot.data();
 		const user: User = mapToUser(data, id);
-		return res.status(200).send(user);
+		return res.status(200).send({ user });
 	} catch (err) {
 		console.error(err);
 		return res.status(400).send({ message: `${err}` });

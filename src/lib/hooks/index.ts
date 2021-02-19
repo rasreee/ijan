@@ -1,2 +1,2 @@
-export { default as useAuthListener } from './useAuthListener';
+export { default as useFirebaseUser } from './useFirebaseUser';
 export { default as useFirebase } from './useFirebase';

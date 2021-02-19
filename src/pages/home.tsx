@@ -1,6 +1,6 @@
 import { Page } from '@containers';
-import { NextPage } from 'next';
-import { useRouter } from 'next/router';
+import { useFirebaseUser } from '@hooks';
+import { useEffect, useState } from 'react';
 import useSWR from 'swr';
 
 type HomeData = {
@@ -10,24 +10,33 @@ type HomeData = {
 
 type HomeError = { message: string };
 
-const Home: NextPage = () => {
-	const router = useRouter();
-	const { userId } = router.query;
+const Home = () => {
+	const { user } = useFirebaseUser();
+
 	const { data, error } = useSWR<HomeData, HomeError>(
-		userId ? '/api/user/' + userId : null
+		user ? '/api/user/' + user.uid : null
 	);
 
-	let component = <div>loading...</div>;
-	if (error) {
-		component = <div>Error: {error.message}</div>;
-	}
-	if (data) {
-		<>
-			<Page.Heading>Employee Portal | Home</Page.Heading>
-			<Page.Description>
-				Welcome back {data.user.firstName}.
-			</Page.Description>
-		</>;
+	let component = null;
+	useEffect(() => {
+		if (error) {
+			component = <div>Error: {error.message}</div>;
+		}
+		if (!data) {
+			component = <div>loading...</div>;
+		}
+		return () => console.log('data: ', data);
+	}, [user, data, error]);
+
+	if (!component && data) {
+		component = (
+			<>
+				<Page.Heading>Employee Portal | Home</Page.Heading>
+				<Page.Description>
+					Welcome back {data.user.firstName}.
+				</Page.Description>
+			</>
+		);
 	}
 
 	return <Page title="Employee Portal | Home">{component}</Page>;
