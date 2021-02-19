@@ -10,16 +10,22 @@ interface Props extends React.HTMLAttributes<HTMLButtonElement> {
   children: any;
   primary?: boolean;
   disabled?: boolean;
+  isLoading?: boolean;
 }
 export default function Button({
   children,
   primary = false,
   disabled = false,
+  isLoading = false,
   ...props
 }: Props) {
   let Container = primary ? PrimaryContainer : SecondaryContainer;
   if (disabled) Container = DisabledContainer;
-  return <Container {...props}>{children}</Container>;
+  return (
+    <Container {...props}>
+      {isLoading ? <>loading...</> : <>{children}</>}
+    </Container>
+  );
 }
 
 interface ButtonProps extends React.HTMLAttributes<HTMLSpanElement> {

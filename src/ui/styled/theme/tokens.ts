@@ -5,6 +5,7 @@ const colors = {
   gray: "#6E7E94",
   lightBluePurple: "#BFCCFA",
   ruby: "#DA4167",
+  error: "#DA4167",
 };
 const fonts = {
   montserrat: "Montserrat",

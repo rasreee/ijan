@@ -12,6 +12,7 @@
       "@utils": ["./lib/utils"],
       "@hooks": ["./lib/hooks"],
       "@contexts": ["./lib/contexts"],
+      "@contexts/*": ["./lib/contexts/*"],
       "@bases": ["./ui/styled/bases"],
       "@templates": ["./ui/styled/templates"]
     }

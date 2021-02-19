@@ -1,20 +1,22 @@
-import firebase from "firebase/app";
 import { AppProps } from "next/app";
 import React from "react";
 import { ThemeProvider } from "styled-components";
 
-import { FirebaseContext } from "@contexts";
+import { FirebaseProvider } from "@contexts/firebase-context";
 import { GlobalStyle, tokens } from "ui/styled/theme";
+import initFirebase from "configs/client";
+
+const client = initFirebase();
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <React.StrictMode>
-      <FirebaseContext.Provider value={{ firebase }}>
+      <FirebaseProvider client={client}>
         <ThemeProvider theme={tokens}>
           <GlobalStyle />
           <Component {...pageProps} />
         </ThemeProvider>
-      </FirebaseContext.Provider>
+      </FirebaseProvider>
     </React.StrictMode>
   );
 }

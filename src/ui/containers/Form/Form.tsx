@@ -1,11 +1,20 @@
-import { Button, Input } from "@atoms";
+import { Button, Input, Text } from "@atoms";
 import { Column } from "@bases";
 import React from "react";
 
 import { Container } from "./styles";
 
-export default function Form({ children, ...props }: BaseComponentProps) {
-  return <Container {...props}>{children}</Container>;
+interface FormProps extends BaseComponentProps {
+  error: string;
+}
+
+export default function Form({ error, children, ...props }: FormProps) {
+  return (
+    <Container {...props}>
+      <Text error value={error} />
+      <>{children}</>
+    </Container>
+  );
 }
 
 interface InputProps {
@@ -37,11 +46,13 @@ Form.Input = function FormInput({
 };
 interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   children: any;
+  isLoading: boolean;
 }
 
 Form.Button = function FormButton({
   children,
   onClick,
+  isLoading,
   ...props
 }: ButtonProps) {
   return (
