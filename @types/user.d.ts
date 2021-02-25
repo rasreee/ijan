@@ -4,4 +4,5 @@ declare type User = {
 	lastName: string;
 	lastActive: number;
 	createdAt: number;
+	phoneNumber: string;
 };
