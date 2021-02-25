@@ -3,7 +3,6 @@ export { default as useAuthStore } from './useAuthStore';
 export { default as useAuth } from './useAuth';
 export { default as useFirestore } from './useFirestore';
 
-export { default as useCreateUser } from './useCreateUser';
 export { default as useLogin } from './useLogin';
 
 export { default as useRegister } from './useRegister';

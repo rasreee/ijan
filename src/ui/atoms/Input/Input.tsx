@@ -19,7 +19,6 @@ export default function Input({
 }: Props) {
 	const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
 		e.preventDefault();
-		console.log('handleChange: ', name, ': ', value);
 		onChange({ name: name, value: e.target.value });
 	};
 

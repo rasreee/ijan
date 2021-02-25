@@ -29,7 +29,6 @@ const PortalPage = () => {
 	const { emailExists } = useEmailExists();
 
 	const trySubmitLogin = async () => {
-		console.log('trySubmitLogin: ', state);
 		setState((current) => ({ ...current, isLoading: true }));
 		try {
 			await login(state.email, state.password);
@@ -56,7 +55,6 @@ const PortalPage = () => {
 	};
 
 	const trySubmitRegister = async () => {
-		console.log('trySubmitRegister: ', state);
 		const isValid = checkIsValid();
 		if (!isValid) {
 			return setState((current) => ({

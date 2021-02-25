@@ -9,12 +9,6 @@ const Home = observer(() => {
 	const router = useRouter();
 	const store = useAuthStore();
 
-	console.log('AuthStore with user: ', store.currentUser);
-
-	useEffect(() => {
-		return () => console.log('AuthStore with user: ', store.currentUser);
-	}, [store.currentUser]);
-
 	if (!store.currentUser) {
 		router.push('/');
 		return null;
