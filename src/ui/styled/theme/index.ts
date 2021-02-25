@@ -1,2 +1,2 @@
-export { default as tokens } from "./tokens";
-export { default as GlobalStyle } from "./GlobalStylesheet";
+export { default as tokens } from './tokens';
+export { default as GlobalStyle } from './GlobalStylesheet';

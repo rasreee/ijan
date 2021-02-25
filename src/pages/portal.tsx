@@ -3,8 +3,7 @@ import { Spacing } from '@atoms';
 import { Form, Page } from '@containers';
 import { RowCentered } from '@bases';
 import { ToggleButton } from '@molecules';
-import { Auth, Emails } from '@services';
-import { useRouter } from 'next/router';
+import { useEmailExists, useLogin, useRegister } from '@hooks';
 
 type State = {
 	email: string;
@@ -23,16 +22,17 @@ const initialState: State = {
 };
 
 const PortalPage = () => {
-	const router = useRouter();
 	const [isLogin, setShowLogin] = useState(true);
 	const [state, setState] = useState<State>(initialState);
+	const { login } = useLogin();
+	const { register } = useRegister();
+	const { emailExists } = useEmailExists();
 
 	const trySubmitLogin = async () => {
 		console.log('trySubmitLogin: ', state);
 		setState((current) => ({ ...current, isLoading: true }));
 		try {
-			await Auth.login(state.email, state.password);
-			router.push('/home');
+			await login(state.email, state.password);
 		} catch (error) {
 			console.error('Error on trySubmitLogin: ', error);
 			setState((current) => ({
@@ -66,7 +66,7 @@ const PortalPage = () => {
 		}
 		setState((current) => ({ ...current, isLoading: true }));
 
-		const exists = await Emails.checkExists(state.email);
+		const exists = await emailExists(state.email);
 		if (!exists) {
 			return setState((current) => ({
 				...current,
@@ -76,8 +76,7 @@ const PortalPage = () => {
 		}
 
 		try {
-			await Auth.register(state.email, state.password);
-			router.push('/home');
+			await register(state.email, state.password);
 		} catch (error) {
 			console.error('Error on trySubmitRegister: ', error);
 			setState((current) => ({

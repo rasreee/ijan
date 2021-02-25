@@ -1,3 +1,4 @@
+import { AuthStoreProvider, FirebaseProvider } from '@contexts';
 import { AppProps } from 'next/app';
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
@@ -9,7 +10,11 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 		<React.StrictMode>
 			<ThemeProvider theme={tokens}>
 				<GlobalStyle />
-				<Component {...pageProps} />
+				<FirebaseProvider>
+					<AuthStoreProvider>
+						<Component {...pageProps} />
+					</AuthStoreProvider>
+				</FirebaseProvider>
 			</ThemeProvider>
 		</React.StrictMode>
 	);

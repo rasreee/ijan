@@ -1,13 +1,13 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Flex = styled.div`
-  display: flex;
+	display: flex;
 `;
 
 export const Row = styled(Flex)`
-  flex-direction: row;
+	flex-direction: row;
 `;
 
 export const Column = styled(Flex)`
-  flex-direction: column;
+	flex-direction: column;
 `;

@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 
-import { Container } from "./styles";
+import { Container } from './styles';
 interface Props extends React.HTMLAttributes<HTMLParagraphElement> {
-  value: string;
+	value: string;
 }
 const Paragraph: React.FC<Props> = ({ value, ...props }) => {
-  return <Container {...props}>{value}</Container>;
+	return <Container {...props}>{value}</Container>;
 };
 
 export default Paragraph;

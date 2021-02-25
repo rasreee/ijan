@@ -7,3 +7,5 @@ export * from './Label';
 export * from './Text';
 
 export { default as Image } from './Image';
+
+export { default as Loading } from './Loading';

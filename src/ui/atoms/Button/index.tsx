@@ -1,37 +1,37 @@
-import React from "react";
+import React from 'react';
 
 import {
-  PrimaryContainer,
-  SecondaryContainer,
-  Label,
-  DisabledContainer,
-} from "./styles";
+	PrimaryContainer,
+	SecondaryContainer,
+	Label,
+	DisabledContainer
+} from './styles';
 interface Props extends React.HTMLAttributes<HTMLButtonElement> {
-  children: any;
-  primary?: boolean;
-  disabled?: boolean;
-  isLoading?: boolean;
+	children: any;
+	primary?: boolean;
+	disabled?: boolean;
+	isLoading?: boolean;
 }
 export default function Button({
-  children,
-  primary = false,
-  disabled = false,
-  isLoading = false,
-  ...props
+	children,
+	primary = false,
+	disabled = false,
+	isLoading = false,
+	...props
 }: Props) {
-  let Container = primary ? PrimaryContainer : SecondaryContainer;
-  if (disabled) Container = DisabledContainer;
-  return (
-    <Container {...props}>
-      {isLoading ? <>loading...</> : <>{children}</>}
-    </Container>
-  );
+	let Container = primary ? PrimaryContainer : SecondaryContainer;
+	if (disabled) Container = DisabledContainer;
+	return (
+		<Container {...props}>
+			{isLoading ? <>loading...</> : <>{children}</>}
+		</Container>
+	);
 }
 
 interface ButtonProps extends React.HTMLAttributes<HTMLSpanElement> {
-  children: any;
+	children: any;
 }
 
 Button.Label = function ButtonLabel({ children, ...props }: ButtonProps) {
-  return <Label {...props}>{children}</Label>;
+	return <Label {...props}>{children}</Label>;
 };

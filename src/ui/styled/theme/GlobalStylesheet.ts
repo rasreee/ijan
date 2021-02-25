@@ -1,5 +1,5 @@
-import { createGlobalStyle } from "styled-components";
-import theme from "./tokens";
+import { createGlobalStyle } from 'styled-components';
+import theme from './tokens';
 
 const GlobalStyle = createGlobalStyle`
   * {
