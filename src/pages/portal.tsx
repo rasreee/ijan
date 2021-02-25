@@ -3,7 +3,7 @@ import { Spacing } from '@atoms';
 import { Form, Page } from '@containers';
 import { RowCentered } from '@bases';
 import { ToggleButton } from '@molecules';
-import { Auth } from '@services';
+import { Auth, Emails } from '@services';
 import { useRouter } from 'next/router';
 
 type State = {
@@ -65,6 +65,16 @@ const PortalPage = () => {
 			}));
 		}
 		setState((current) => ({ ...current, isLoading: true }));
+
+		const exists = await Emails.checkExists(state.email);
+		if (!exists) {
+			return setState((current) => ({
+				...current,
+				error:
+					'This email address is unauthorized to register for an account. Please send an email to lesley.hanna98@gmail.com detailing your issue.'
+			}));
+		}
+
 		try {
 			await Auth.register(state.email, state.password);
 			router.push('/home');
