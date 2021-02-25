@@ -41,7 +41,11 @@ export default function useLogin() {
 							'\ncontext: useLogin'
 					);
 				store.setCurrentUser(user);
-				router.push('/home');
+				if (user.firstName && user.lastName) {
+					router.push('/home');
+				} else {
+					router.push('/welcome');
+				}
 			} catch (err) {
 				console.log('Error: ' + err);
 				throw err;
