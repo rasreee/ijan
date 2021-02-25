@@ -87,7 +87,10 @@ const PortalPage = () => {
 		}
 	};
 
-	const toggle = () => setShowLogin(!isLogin);
+	const toggle = () => {
+		setShowLogin(!isLogin);
+		setState(initialState);
+	};
 
 	const updateState: InputChangeEventHandler = ({ name, value }) => {
 		setState((current) => ({ ...current, [name]: value }));

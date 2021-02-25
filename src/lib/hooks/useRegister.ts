@@ -1,39 +1,43 @@
 import { useRouter } from 'next/router';
 import useAuth from './useAuth';
 import useAuthStore from './useAuthStore';
-import useGetUser from './useGetUser';
+import useUserService from './useUserService';
 
 export default function useRegister() {
 	const router = useRouter();
 	const auth = useAuth();
 	const store = useAuthStore();
-	const { getUser } = useGetUser();
+	const { getUser, createUser } = useUserService();
 	return {
 		register: async (email: string, password: string) => {
-			let userId: string | null = null;
+			let id: string | null = null;
 			try {
 				const creds = await auth.createUserWithEmailAndPassword(
 					email,
 					password
 				);
 				if (creds.user) {
-					userId = creds.user.uid;
+					id = creds.user.uid;
 				}
 			} catch (err) {
 				console.log('Error: ' + err);
 				throw err;
 			}
 
-			if (!userId) throw new Error('Error: user credentials invalid');
+			if (!id) throw new Error('Error: user credentials invalid');
 
 			try {
-				const user = await getUser(userId);
-				console.log(
-					'🍗 useRegister:',
-					'\n got user: ' + JSON.stringify(user)
-				);
-				store.setCurrentUser(user);
-				router.push('/home');
+				let result = await getUser(id);
+				// console.log(
+				// 	'🍗 useRegister:',
+				// 	'\n got user: ' + JSON.stringify(user)
+				// );
+				if (!result) {
+					result = await createUser({ id, email });
+				}
+
+				store.setCurrentUser(result);
+				router.push('/welcome');
 			} catch (err) {
 				console.log('Error: ' + err);
 				throw err;

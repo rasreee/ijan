@@ -1,12 +1,12 @@
 import { useRouter } from 'next/router';
 import useAuth from './useAuth';
 import useAuthStore from './useAuthStore';
-import useGetUser from './useGetUser';
+import useUserService from './useUserService';
 
 export default function useLogin() {
 	const router = useRouter();
 	const store = useAuthStore();
-	const { getUser } = useGetUser();
+	const { getUser } = useUserService();
 	const auth = useAuth();
 	return {
 		login: async (email: string, password: string) => {
@@ -31,10 +31,15 @@ export default function useLogin() {
 
 			try {
 				const user = await getUser(userId);
-				console.log(
-					'🍗 useLogin:',
-					'\n got user: ' + JSON.stringify(user)
-				);
+				// console.log(
+				// 	'🍗 useLogin:',
+				// 	'\n got user: ' + JSON.stringify(user)
+				// );
+				if (!user)
+					throw new Error(
+						'Unhandled error for undefined user: ' +
+							'\ncontext: useLogin'
+					);
 				store.setCurrentUser(user);
 				router.push('/home');
 			} catch (err) {

@@ -7,6 +7,6 @@ export { default as useCreateUser } from './useCreateUser';
 export { default as useLogin } from './useLogin';
 
 export { default as useRegister } from './useRegister';
-export { default as useGetUser } from './useGetUser';
+export { default as useUserService } from './useUserService';
 
 export { default as useEmailExists } from './useEmailExists';
