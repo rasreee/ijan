@@ -1,12 +1,11 @@
-import { AuthStoreContext } from '@contexts';
-import { useContext } from 'react';
+import useStores from './useStores';
 
 export default function useAuthStore() {
-	const store = useContext(AuthStoreContext);
-	if (!store)
+	const { authStore } = useStores();
+	if (!authStore)
 		throw new Error(
 			'useAuthStore() must be called within AuthStoreProvider'
 		);
 
-	return store;
+	return authStore;
 }

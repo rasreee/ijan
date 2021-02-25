@@ -31,6 +31,10 @@ export default function useLogin() {
 
 			try {
 				const user = await getUser(userId);
+				console.log(
+					'🍗 useLogin:',
+					'\n got user: ' + JSON.stringify(user)
+				);
 				store.setCurrentUser(user);
 				router.push('/home');
 			} catch (err) {

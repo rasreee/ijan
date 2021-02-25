@@ -2,9 +2,11 @@ import { Loading } from '@atoms';
 import { Page } from '@containers';
 import { useAuthStore } from '@hooks';
 import { observer } from 'mobx-react';
+import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
 
 const Home = observer(() => {
+	const router = useRouter();
 	const store = useAuthStore();
 
 	console.log('AuthStore with user: ', store.currentUser);
@@ -14,6 +16,7 @@ const Home = observer(() => {
 	}, [store.currentUser]);
 
 	if (!store.currentUser) {
+		router.push('/');
 		return null;
 	}
 

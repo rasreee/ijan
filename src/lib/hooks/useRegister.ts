@@ -28,6 +28,10 @@ export default function useRegister() {
 
 			try {
 				const user = await getUser(userId);
+				console.log(
+					'🍗 useRegister:',
+					'\n got user: ' + JSON.stringify(user)
+				);
 				store.setCurrentUser(user);
 				router.push('/home');
 			} catch (err) {
