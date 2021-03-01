@@ -4,18 +4,15 @@ import React from 'react';
 
 import { Container, Content } from './styles';
 
-interface IAuthLayout extends React.HTMLAttributes<HTMLDivElement> {}
+interface IAuthLayout extends React.HTMLAttributes<HTMLDivElement> {
+	pathname: string;
+	push: (path: string) => Promise<boolean>;
+}
 
-const AuthLayout: React.FC<IAuthLayout> = ({ children }) => {
-	const { pathname, push } = useRouter();
+const AuthLayout: React.FC<IAuthLayout> = ({ pathname, push, children }) => {
 	return (
 		<Container>
-			<Sidebar
-				path={pathname}
-				onSelect={(next) => {
-					push(next);
-				}}
-			/>
+			<Sidebar path={pathname} />
 			<Content> {children}</Content>
 		</Container>
 	);

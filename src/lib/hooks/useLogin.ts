@@ -1,10 +1,19 @@
 import { useRouter } from 'next/router';
+import { useState, useEffect } from 'react';
 import useAuth from './useAuth';
 import useAuthStore from './useAuthStore';
 import useUserService from './useUserService';
 
 export default function useLogin() {
+	const [path, setPath] = useState<string | undefined>(undefined);
 	const router = useRouter();
+
+	useEffect(() => {
+		if (path) {
+			router.push(path);
+		}
+	}, [path]);
+
 	const store = useAuthStore();
 	const { getUser } = useUserService();
 	const auth = useAuth();
@@ -42,9 +51,9 @@ export default function useLogin() {
 					);
 				store.setCurrentUser(user);
 				if (user.firstName && user.lastName) {
-					router.push('/home');
+					setPath('/home');
 				} else {
-					router.push('/welcome');
+					setPath('/welcome');
 				}
 			} catch (err) {
 				console.log('Error: ' + err);

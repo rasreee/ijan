@@ -3,7 +3,6 @@ import React from 'react';
 
 import { Container } from './styles';
 interface Props extends React.HTMLAttributes<HTMLSpanElement> {
-	children: any;
 	color?: string;
 	paddingLeft?: number;
 	size?: number;

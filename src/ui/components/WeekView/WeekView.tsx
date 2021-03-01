@@ -3,7 +3,7 @@ import React from 'react';
 import { Container } from './styles';
 import Today from './Today';
 import useWeekView from './useWeekView';
-import ClockInOrOutButton from './ClockInOrOutButton';
+import ClockInButton from './ClockInButton';
 import TimeCard from './TimeCard/TimeCard';
 import { observer } from 'mobx-react';
 
@@ -12,8 +12,10 @@ const WeekView: React.FC = () => {
 	return (
 		<Container>
 			<Today />
-			<ClockInOrOutButton />
-			<TimeCard />
+			<ClockInButton clockedIn={vm.clockedIn} onClick={vm.toggle} />
+			<TimeCard>
+				<TimeCard.Today />
+			</TimeCard>
 		</Container>
 	);
 };

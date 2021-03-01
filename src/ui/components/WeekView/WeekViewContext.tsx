@@ -7,7 +7,7 @@ export const WeekViewContext = React.createContext<WeekViewModel | undefined>(
 );
 
 export function WeekViewProvider({ children }: { children: ReactNode }) {
-	const vm = new WeekViewModel({ buttonText: 'Clock in' });
+	const vm = new WeekViewModel({ clockedIn: false });
 
 	return (
 		<WeekViewContext.Provider value={vm}>

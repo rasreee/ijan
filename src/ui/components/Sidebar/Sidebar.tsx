@@ -10,16 +10,9 @@ import { equal } from '@shims';
 
 interface ISidebar {
 	path: string;
-	onSelect: (path: string) => void;
 }
 
-const Sidebar: React.FC<ISidebar> = ({ path, onSelect }) => {
-	const handleClick: MouseEventHandler<HTMLDivElement> = (e) => {
-		const nextPath = e.currentTarget.nodeName;
-		if (equal(path, nextPath)) return;
-		console.log('💜 PATH: ', path, '\n');
-		onSelect(nextPath);
-	};
+const Sidebar: React.FC<ISidebar> = ({ path }) => {
 	return (
 		<Container>
 			<IconLink src={tokens.iconPaths.miniBrand} />
@@ -31,7 +24,6 @@ const Sidebar: React.FC<ISidebar> = ({ path, onSelect }) => {
 					{...route}
 					id={route.path}
 					selected={equal(path, route.path)}
-					onClick={handleClick}
 				/>
 			))}
 		</Container>

@@ -1,23 +1,16 @@
 import { action, makeObservable, observable } from 'mobx';
 
 export default class WeekViewModel {
-	buttonText: string;
+	clockedIn: boolean;
 
-	constructor({ buttonText }: WeekViewModelProps) {
-		this.buttonText = buttonText;
-		makeObservable(this, { buttonText: observable, toggle: action });
+	constructor({ clockedIn }: WeekViewModelProps) {
+		this.clockedIn = clockedIn;
+		makeObservable(this, { clockedIn: observable, toggle: action });
 	}
 
-	toggle = () => {
-		const text = getOpposite(this.buttonText);
-		this.buttonText = text;
-	};
+	toggle = () => (this.clockedIn = !this.clockedIn);
 }
 
 interface WeekViewModelProps {
-	buttonText: string;
+	clockedIn: boolean;
 }
-
-const getOpposite = (buttonText: string) => {
-	return buttonText === 'Clock in' ? 'Clock out' : 'Clock in';
-};

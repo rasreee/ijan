@@ -14,10 +14,6 @@ export default function useAuthStore() {
 			if (pathname === '/home') {
 				push('/');
 			}
-		} else {
-			if (pathname !== '/home') {
-				push('/home');
-			}
 		}
 	}, [authStore.currentUser, pathname]);
 	return authStore;
