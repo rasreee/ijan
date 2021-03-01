@@ -2,7 +2,7 @@
 	"name": "ijan",
 	"version": "1.0.0",
 	"scripts": {
-		"killall": "killall -9 node",
+		"kill": "killall -9 node",
 		"dev": "NODE_ENV='dev' cross-env NODE_OPTIONS='--inspect' next",
 		"build": "rm -rf ./build && next build",
 		"next:build": "next build",

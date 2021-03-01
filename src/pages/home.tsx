@@ -1,27 +1,22 @@
-import { Loading, Span } from '@atoms';
-import { Page } from '@containers';
+import { Loading } from '@atoms';
+import Portal from '@containers/Portal';
 import { useAuthStore } from '@hooks';
+import HomeContent from '@pages/HomePage';
 import { observer } from 'mobx-react';
+import { useRouter } from 'next/router';
 import React from 'react';
 
 const Home = observer(() => {
 	const { currentUser } = useAuthStore();
 
 	return (
-		<Page title="Employee Portal | Home">
+		<Portal>
 			{currentUser ? (
-				<div>
-					<Page.Description>
-						Welcome back {currentUser.firstName}
-					</Page.Description>
-					<Page.Section>
-						<Span>You haven't clocked in today.</Span>
-					</Page.Section>
-				</div>
+				<HomeContent currentUser={currentUser} />
 			) : (
 				<Loading />
 			)}
-		</Page>
+		</Portal>
 	);
 });
 export default Home;

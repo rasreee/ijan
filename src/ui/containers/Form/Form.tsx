@@ -1,5 +1,5 @@
 import { Button, Input, Span } from '@atoms';
-import { Column } from '@bases';
+import { Col } from '@bases';
 import React from 'react';
 
 import { Container } from './styles';
@@ -38,10 +38,10 @@ Form.Input = function FormInput({
 	...props
 }: InputProps) {
 	return (
-		<Column {...props}>
+		<Col {...props}>
 			<Input.Label required={required} value={label} />
 			<Input name={name} type={type} value={value} onChange={onChange} />
-		</Column>
+		</Col>
 	);
 };
 interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {

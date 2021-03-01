@@ -5,17 +5,19 @@ import { Container } from './styles';
 interface Props extends React.HTMLAttributes<HTMLSpanElement> {
 	children: any;
 	color?: string;
+	paddingLeft?: number;
 	size?: number;
 	error?: boolean;
 }
 const Span: React.FC<Props> = ({
 	children,
 	color = tokens.colors.dark,
-	size,
-	error = false
+	error = false,
+	paddingLeft,
+	...props
 }) => {
 	return (
-		<Container size={size} color={error ? tokens.colors.error : color}>
+		<Container color={error ? tokens.colors.error : color} {...props}>
 			{children}
 		</Container>
 	);

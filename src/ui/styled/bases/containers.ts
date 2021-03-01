@@ -8,6 +8,6 @@ export const Row = styled(Flex)`
 	flex-direction: row;
 `;
 
-export const Column = styled(Flex)`
+export const Col = styled(Flex)`
 	flex-direction: column;
 `;

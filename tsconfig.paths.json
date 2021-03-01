@@ -2,16 +2,22 @@
 	"compilerOptions": {
 		"baseUrl": "./src",
 		"paths": {
+			"@constants": ["./constants"],
+			"@shims": ["./shims"],
+			"@layouts": ["./ui/layouts"],
+			"@layouts/*": ["./ui/layouts/*"],
 			"@containers": ["./ui/containers"],
 			"@containers/*": ["./ui/containers/*"],
-			"@hocs": ["./ui/hocs"],
-			"@hocs/*": ["./ui/hocs/*"],
 			"@components": ["./ui/components"],
+			"@components/*": ["./ui/components/*"],
 			"@atoms": ["./ui/atoms"],
 			"@molecules": ["./ui/molecules"],
+			"@atoms/*": ["./ui/atoms/*"],
+			"@molecules/*": ["./ui/molecules/*"],
 			"@theme": ["./ui/styled/theme"],
 			"@services": ["./lib/services"],
 			"@utils": ["./lib/utils"],
+			"@utils/*": ["./lib/utils/*"],
 			"@hooks": ["./lib/hooks"],
 			"@hooks/*": ["./lib/hooks/*"],
 			"@contexts": ["./lib/contexts"],
@@ -19,7 +25,9 @@
 			"@stores": ["./lib/stores"],
 			"@stores/*": ["./lib/stores/*"],
 			"@bases": ["./ui/styled/bases"],
-			"@templates": ["./ui/styled/templates"]
+			"@templates": ["./ui/styled/templates"],
+			"@pages": ["./ui/pages"],
+			"@pages/*": ["./ui/pages/*"]
 		}
 	}
 }

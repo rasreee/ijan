@@ -8,16 +8,24 @@ const GlobalStyle = createGlobalStyle`
     font-family: Raleway;
   }
 
+  html,
   body {
-    position: relative;
-    background-color: ${theme.colors.light};
-    margin: 0;
     padding: 0;
-    height: 100vh;
+    margin: 0;
+  }
+
+
+  body {
+    background-color: ${theme.colors.light};
+  }
+
+  main {
+     height: 100vh;
     width: 100vw;
     overflow: auto;
-    overscroll-behavior: none;
+	overscroll-behavior: none;
   }
+
 
   header {
     margin: 0;
@@ -40,6 +48,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   a {
+    color: inherit;
     text-decoration: none;
   }
 `;

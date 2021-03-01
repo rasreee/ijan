@@ -2,12 +2,12 @@ import React from 'react';
 
 import { Container } from './styles';
 
-const Icon: React.FC = () => {
-	return (
-		<Container>
-			<h1>Icon</h1>
-		</Container>
-	);
+interface IIcon extends React.HTMLAttributes<HTMLImageElement> {
+	src: string;
+}
+
+const Icon: React.FC<IIcon> = ({ src, ...props }) => {
+	return <Container {...props} src={src} />;
 };
 
 export default Icon;
