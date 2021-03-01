@@ -1,5 +1,6 @@
 export { default as useCollection } from './useCollection';
 export { default as useAuthStore } from './useAuthStore';
+export { default as useAuthService } from './useAuthService';
 export { default as useAuth } from './useAuth';
 export { default as useFirestore } from './useFirestore';
 

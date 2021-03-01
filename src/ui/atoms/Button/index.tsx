@@ -7,13 +7,13 @@ import {
 	DisabledContainer
 } from './styles';
 interface Props extends React.HTMLAttributes<HTMLButtonElement> {
-	children: any;
 	primary?: boolean;
 	disabled?: boolean;
 	isLoading?: boolean;
+	text?: any;
 }
 export default function Button({
-	children,
+	text,
 	primary = false,
 	disabled = false,
 	isLoading = false,
@@ -23,7 +23,7 @@ export default function Button({
 	if (disabled) Container = DisabledContainer;
 	return (
 		<Container {...props}>
-			{isLoading ? <>loading...</> : <>{children}</>}
+			{isLoading ? <>loading...</> : <>{text}</>}
 		</Container>
 	);
 }

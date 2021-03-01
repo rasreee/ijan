@@ -2,7 +2,7 @@ import { tokens } from '@theme';
 import React from 'react';
 
 import { Container } from './styles';
-import { Text } from '../';
+import { Span } from '../';
 interface Props {
 	value: string;
 	required: boolean;
@@ -11,8 +11,8 @@ interface Props {
 const Label: React.FC<Props> = ({ required, value, size = 16, ...props }) => {
 	return (
 		<Container {...props}>
-			<Text value={value} size={size} />
-			{required && <Text color={tokens.colors.ruby} value="*" />}
+			<Span size={size}>{value}</Span>
+			{required && <Span color={tokens.colors.ruby}>*</Span>}
 		</Container>
 	);
 };

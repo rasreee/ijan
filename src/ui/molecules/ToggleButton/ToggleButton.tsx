@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { Container, Label } from './styles';
+import { Container } from './styles';
 interface Props extends React.HTMLAttributes<HTMLButtonElement> {
 	disabled: boolean;
 	onToggle: () => void;
-	label: string;
+	text: string;
 }
-function ToggleButton({ disabled, onToggle, label }: Props) {
+function ToggleButton({ disabled, onToggle, text }: Props) {
 	return (
 		<Container
 			onClick={(e) => {
@@ -15,9 +15,8 @@ function ToggleButton({ disabled, onToggle, label }: Props) {
 			}}
 			disabled={disabled}
 			primary
-		>
-			<Label>{label}</Label>
-		</Container>
+			text={text}
+		/>
 	);
 }
 

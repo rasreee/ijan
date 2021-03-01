@@ -1,4 +1,4 @@
-import { Button, Input, Text } from '@atoms';
+import { Button, Input, Span } from '@atoms';
 import { Column } from '@bases';
 import React from 'react';
 
@@ -11,7 +11,7 @@ interface FormProps extends BaseComponentProps {
 export default function Form({ error, children, ...props }: FormProps) {
 	return (
 		<Container {...props}>
-			<Text error value={error} />
+			<Span error>{error}</Span>
 			<>{children}</>
 		</Container>
 	);
@@ -45,8 +45,8 @@ Form.Input = function FormInput({
 	);
 };
 interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
-	children: any;
 	isLoading: boolean;
+	children: any;
 }
 
 Form.Button = function FormButton({
@@ -68,10 +68,9 @@ Form.Button = function FormButton({
 				flexGrow: 1,
 				cursor: 'pointer'
 			}}
+			text={children}
 			{...props}
-		>
-			{children}
-		</Button>
+		/>
 	);
 };
 interface Props {

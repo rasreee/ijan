@@ -3,6 +3,9 @@
 		"baseUrl": "./src",
 		"paths": {
 			"@containers": ["./ui/containers"],
+			"@containers/*": ["./ui/containers/*"],
+			"@hocs": ["./ui/hocs"],
+			"@hocs/*": ["./ui/hocs/*"],
 			"@components": ["./ui/components"],
 			"@atoms": ["./ui/atoms"],
 			"@molecules": ["./ui/molecules"],
@@ -10,6 +13,7 @@
 			"@services": ["./lib/services"],
 			"@utils": ["./lib/utils"],
 			"@hooks": ["./lib/hooks"],
+			"@hooks/*": ["./lib/hooks/*"],
 			"@contexts": ["./lib/contexts"],
 			"@contexts/*": ["./lib/contexts/*"],
 			"@stores": ["./lib/stores"],

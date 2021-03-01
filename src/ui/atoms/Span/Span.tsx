@@ -3,22 +3,22 @@ import React from 'react';
 
 import { Container } from './styles';
 interface Props extends React.HTMLAttributes<HTMLSpanElement> {
-	value: string;
+	children: any;
 	color?: string;
 	size?: number;
 	error?: boolean;
 }
-const Text: React.FC<Props> = ({
-	value,
+const Span: React.FC<Props> = ({
+	children,
 	color = tokens.colors.dark,
 	size,
 	error = false
 }) => {
 	return (
 		<Container size={size} color={error ? tokens.colors.error : color}>
-			{value}
+			{children}
 		</Container>
 	);
 };
 
-export default Text;
+export default Span;

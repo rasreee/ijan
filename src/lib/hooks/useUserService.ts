@@ -17,6 +17,7 @@ export default function useUserService() {
 				lastName: data.lastName,
 				lastActive: data.lastActive,
 				createdAt: data.createdAt,
+				phoneNumber: data.phoneNumber,
 				id: id
 			};
 		},

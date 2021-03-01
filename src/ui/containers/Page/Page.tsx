@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import React from 'react';
-import { Header, Footer } from '@components';
+import { UnauthorizedHeader, Footer, AuthHeader } from '@components';
+import useAuthStore from '../../../lib/hooks/useAuthStore';
 
 import {
 	Container,
@@ -25,6 +26,7 @@ export default function Page({
 	children,
 	...props
 }: Props) {
+	const { currentUser } = useAuthStore();
 	return (
 		<Container {...props}>
 			<Head>
@@ -35,7 +37,7 @@ export default function Page({
 					content="initial-scale=1.0, width=device-width"
 				/>
 			</Head>
-			<Header />
+			{currentUser ? <AuthHeader /> : <UnauthorizedHeader />}
 			<Body>
 				<Heading>{heading}</Heading>
 				<Description>{description}</Description>

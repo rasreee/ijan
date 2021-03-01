@@ -2,13 +2,10 @@ import React from 'react';
 import { Page } from '@containers';
 import { Image } from '@atoms';
 import IconPaths from 'ui/styled/theme/icon-paths';
-import { useRouter } from 'next/router';
 import { useAuthStore } from '@hooks';
-
+const dev = process.env.NODE_ENV !== 'production';
 const IndexPage = () => {
-	const router = useRouter();
 	const store = useAuthStore();
-	if (store.currentUser) return router.push('/home');
 
 	return (
 		<Page title="iJan | Home">

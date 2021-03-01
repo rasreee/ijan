@@ -4,7 +4,7 @@ export * from './Paragraph';
 export { default as Button } from './Button';
 export * from './Input';
 export * from './Label';
-export * from './Text';
+export { default as Span } from './Span/Span';
 
 export { default as Image } from './Image';
 

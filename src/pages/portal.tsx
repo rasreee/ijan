@@ -102,13 +102,13 @@ const PortalPage = () => {
 		>
 			<RowCentered>
 				<ToggleButton
-					label="Login"
+					text="Login"
 					onToggle={toggle}
 					disabled={!isLogin}
 				/>
 				<Spacing width={24} />
 				<ToggleButton
-					label="Register"
+					text="Register"
 					onToggle={toggle}
 					disabled={isLogin}
 				/>

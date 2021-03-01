@@ -3,7 +3,7 @@
 	"version": "1.0.0",
 	"scripts": {
 		"killall": "killall -9 node",
-		"dev": "cross-env NODE_OPTIONS='--inspect' next",
+		"dev": "NODE_ENV='dev' cross-env NODE_OPTIONS='--inspect' next",
 		"build": "rm -rf ./build && next build",
 		"next:build": "next build",
 		"start": "next start -p $PORT",
