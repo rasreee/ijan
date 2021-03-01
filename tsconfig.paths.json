@@ -15,7 +15,6 @@
 			"@atoms/*": ["./ui/atoms/*"],
 			"@molecules/*": ["./ui/molecules/*"],
 			"@theme": ["./ui/styled/theme"],
-			"@services": ["./lib/services"],
 			"@utils": ["./lib/utils"],
 			"@utils/*": ["./lib/utils/*"],
 			"@hooks": ["./lib/hooks"],
@@ -29,7 +28,9 @@
 			"@pages": ["./ui/pages"],
 			"@pages/*": ["./ui/pages/*"],
 			"@models": ["./models"],
-			"@models/*": ["./models/*"]
+			"@models/*": ["./models/*"],
+			"@services": ["./lib/services"],
+			"@services/*": ["./lib/services/*"]
 		}
 	}
 }

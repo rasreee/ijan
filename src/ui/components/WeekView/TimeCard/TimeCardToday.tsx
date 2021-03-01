@@ -1,13 +1,18 @@
-import useWeekView from '@components/WeekView/useWeekView';
+import TimesStore from '@stores/TimesStore';
 import { observer } from 'mobx-react';
 import React from 'react';
 import { TodayContainer } from './styles';
+import TimeItem from './TimeItem';
+interface ITimeCardToday {
+	times: TimesStore;
+}
 
-const TimeCardToday = () => {
-	const vm = useWeekView();
+const TimeCardToday: React.FC<ITimeCardToday> = ({ times }) => {
 	return (
 		<TodayContainer>
-			<h1>TimeCardToday</h1>
+			{times.list.map((time) => (
+				<TimeItem key={time.id} {...time} />
+			))}
 		</TodayContainer>
 	);
 };

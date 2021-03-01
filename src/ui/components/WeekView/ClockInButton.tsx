@@ -1,18 +1,37 @@
 import { Button } from '@atoms';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import useWeekView from './useWeekView';
 
 interface IClockInButton {
-	clockedIn: boolean;
-	onClick: () => boolean;
+	text: string;
+	onIn: () => Promise<void>;
+	onOut: () => Promise<void>;
 }
 
-const IClockInButton: React.FC<IClockInButton> = ({ clockedIn, onClick }) => {
+const ClockInButton: React.FC<IClockInButton> = ({ text, onOut, onIn }) => {
+	const [loading, setLoading] = useState(false);
+	const clockedIn = text === 'CLOCK OUT';
+
+	useEffect(() => {
+		return () =>
+			console.log(
+				'ClockInButton: ',
+				clockedIn ? 'clocked IN' : 'clocked OUT'
+			);
+	}, [text]);
+
+	const handleClick = async (e) => {
+		e.preventDefault();
+		setLoading(true);
+		clockedIn ? await onOut() : await onIn();
+		setLoading(false);
+	};
+
 	return (
 		<Button
 			primary
-			text={clockedIn ? 'CLOCK OUT' : 'CLOCK IN'}
-			onClick={onClick}
+			text={!loading ? text : 'loading...'}
+			onClick={handleClick}
 			style={{
 				width: '120px',
 				height: '36px',
@@ -23,4 +42,4 @@ const IClockInButton: React.FC<IClockInButton> = ({ clockedIn, onClick }) => {
 	);
 };
 
-export default IClockInButton;
+export default ClockInButton;

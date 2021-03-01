@@ -14,9 +14,13 @@ const WeekView: React.FC = () => {
 		<Container>
 			<Top>
 				<Today />
-				<ClockInButton clockedIn={vm.clockedIn} onClick={vm.toggle} />
+				<ClockInButton
+					text={vm.buttonText}
+					onIn={vm.clockIn}
+					onOut={vm.clockOut}
+				/>
 			</Top>
-			<TimeCard.Today />
+			<TimeCard.Today times={vm.times} />
 		</Container>
 	);
 };
