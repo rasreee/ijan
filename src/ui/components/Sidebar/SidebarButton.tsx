@@ -14,27 +14,30 @@ interface ISidebarButton extends React.HTMLAttributes<HTMLDivElement> {
 	name: string;
 	path: string;
 	icon: string;
+	onRouteClick: (path: string) => Promise<boolean>;
 }
 
 const SidebarButton: React.FC<ISidebarButton> = ({
 	path,
 	name,
 	icon,
-	selected
+	selected,
+	onRouteClick
 }) => {
 	const textProps = { color: 'white' };
 	return (
-		<Link href={path}>
-			<a>
-				<IconButton
-					text={name}
-					src={icon}
-					textProps={textProps}
-					color={selected ? tokens.colors.gray : 'transparent'}
-					style={{ padding: '24px 24px' }}
-				/>
-			</a>
-		</Link>
+		<IconButton
+			text={name}
+			src={icon}
+			textProps={textProps}
+			color={selected ? tokens.colors.gray : 'transparent'}
+			style={{ padding: '24px 24px' }}
+			onClick={(e) => {
+				e.preventDefault();
+				if (selected) return;
+				onRouteClick(path);
+			}}
+		/>
 	);
 };
 export default SidebarButton;

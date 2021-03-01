@@ -12,13 +12,12 @@ import {
 export default class WeekViewModel {
 	clockedIn: boolean;
 	times: TimesStore;
-	service: TimesService;
 	currentTime: Time | null = null;
 
-	constructor({ clockedIn, times, service }: WeekViewModelProps) {
+	constructor({ clockedIn, times }: WeekViewModelProps) {
 		this.clockedIn = clockedIn;
 		this.times = times;
-		this.service = service;
+		this.times.hydrate();
 		this.currentTime = times[0];
 		makeObservable(this, {
 			clockedIn: observable,
@@ -27,7 +26,6 @@ export default class WeekViewModel {
 			clockOut: action,
 			addTime: action,
 			replaceTime: action,
-			service: false,
 			currentTime: observable,
 			setCurrentTime: action,
 			setClockedIn: action,
@@ -53,7 +51,7 @@ export default class WeekViewModel {
 	clockIn = async () => {
 		try {
 			const userId = this.times.root.authStore.currentUser?.id ?? '';
-			const result = await this.service.clockIn(userId);
+			const result = await this.times.root.timesService.clockIn(userId);
 			if (!result) {
 				return;
 			}
@@ -70,7 +68,9 @@ export default class WeekViewModel {
 	clockOut = async () => {
 		if (!this.currentTime) return;
 		try {
-			const result = await this.service.clockOut(this.currentTime);
+			const result = await this.times.root.timesService.clockOut(
+				this.currentTime
+			);
 			if (!result) {
 				return;
 			}
@@ -94,5 +94,4 @@ export default class WeekViewModel {
 interface WeekViewModelProps {
 	clockedIn: boolean;
 	times: TimesStore;
-	service: TimesService;
 }

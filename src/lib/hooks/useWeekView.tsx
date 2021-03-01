@@ -1,5 +1,7 @@
 import React from 'react';
-import { WeekViewContext } from './WeekViewContext';
+import WeekViewModel from 'vms/WeekViewModel';
+
+export const WeekViewContext = React.createContext<WeekViewModel | null>(null);
 
 export default function useWeekView() {
 	const ctx = React.useContext(WeekViewContext);

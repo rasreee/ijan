@@ -1,14 +1,22 @@
 import React from 'react';
 
 import { Container, Top } from './styles';
-import Today from './Today';
-import useWeekView from './useWeekView';
-import ClockInButton from './ClockInButton';
-import TimeCard from './TimeCard/TimeCard';
+import Today from '../../molecules/Today';
+import useWeekView from '../../../lib/hooks/useWeekView';
+import ClockInButton from '../../molecules/ClockInButton';
 import { observer } from 'mobx-react';
+import TableView from './TableView';
+import { ErrorMessage, Loading } from '@atoms';
 
 const WeekView: React.FC = () => {
 	const vm = useWeekView();
+	let Component = <TableView list={vm.times.list} />;
+	if (vm.times.loading) {
+		return <Loading />;
+	}
+	if (vm.times.error) {
+		return <ErrorMessage text={vm.times.errorMessage} />;
+	}
 	return (
 		<Container>
 			<Top>
@@ -19,7 +27,7 @@ const WeekView: React.FC = () => {
 					onOut={vm.clockOut}
 				/>
 			</Top>
-			<TimeCard.Today times={vm.times} />
+			<TableView list={vm.times.list} />
 		</Container>
 	);
 };

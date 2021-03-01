@@ -12,7 +12,7 @@ interface IAuthLayout extends React.HTMLAttributes<HTMLDivElement> {
 const AuthLayout: React.FC<IAuthLayout> = ({ pathname, push, children }) => {
 	return (
 		<Container>
-			<Sidebar path={pathname} />
+			<Sidebar path={pathname} push={push} />
 			<Content> {children}</Content>
 		</Container>
 	);

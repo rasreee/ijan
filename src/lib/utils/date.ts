@@ -40,3 +40,23 @@ export const getClockValue = () => {
 export function getToday() {
 	return getClockValue();
 }
+
+function getMinute(dt: Date) {
+	let result = '';
+	const minute = dt.getMinutes();
+	if (minute < 10) {
+		result = '0' + `${minute}`;
+	} else {
+		result = `${minute}`;
+	}
+	return result;
+}
+
+export function getTimeString(epoch: number) {
+	if (epoch === -1) return '';
+	const dt = new Date(epoch);
+	const hour = dt.getHours();
+	const minute = getMinute(dt);
+	const ampm = hour >= 12 ? 'pm' : 'am';
+	return `${hour}:${minute} ${ampm}`;
+}

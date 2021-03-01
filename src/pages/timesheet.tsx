@@ -1,18 +1,26 @@
+import { Heading } from '@atoms';
+import WeekView from '@components/WeekView';
+import { WeekViewContext } from '@hooks/useWeekView';
 import { useTimesStore } from '@hooks/data';
 import { AuthLayout } from '@layouts';
-import TimePage from '@pages/TimePage';
+import { observer } from 'mobx-react';
 import { useRouter } from 'next/router';
-import React from 'react';
+import React, { useEffect } from 'react';
+import WeekViewModel from 'vms/WeekViewModel';
 
 const Timesheet: React.FC = () => {
 	const router = useRouter();
-
 	const times = useTimesStore();
+	const vm = new WeekViewModel({ clockedIn: false, times });
+
 	return (
 		<AuthLayout pathname={router.pathname} push={router.push}>
-			<TimePage />
+			<Heading>Timesheet</Heading>
+			<WeekViewContext.Provider value={vm}>
+				<WeekView />
+			</WeekViewContext.Provider>
 		</AuthLayout>
 	);
 };
 
-export default Timesheet;
+export default observer(Timesheet);

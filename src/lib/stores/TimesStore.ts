@@ -11,47 +11,49 @@ import CollectionStore from './CollectionStore';
 import Status from './status';
 
 export default class TimesStore extends CollectionStore<Time> {
-	status = Status.LOADING;
 	errorMessage = '';
+	loading = false;
 
 	constructor(root: RootStore) {
 		super(root);
 		makeObservable(this, {
-			hydrate: false,
-			status: observable,
-			setStatus: action,
-			error: computed,
-			loading: computed,
+			hydrate: action,
+			loading: observable,
 			done: computed,
+			setLoading: observable,
 			errorMessage: observable,
+			error: computed,
 			setErrorMessage: action
 		});
 	}
-	hydrate = async (userId: string) => {
-		this.setStatus(Status.LOADING);
+	hydrate = async () => {
+		const userId = this.root.authStore.currentUser?.id ?? '';
+		console.log('💜 hydrating Times');
+		this.setLoading(true);
 		try {
 			const result = await this.root.timesService.getAll(userId);
 			runInAction(() => {
 				this.setList(result);
-				this.setStatus(Status.ERROR);
+				console.log('💜 DONE hydrating');
+				this.setLoading(false);
 			});
 		} catch (err) {
 			console.error(err);
 			runInAction(() => {
-				this.setStatus(Status.ERROR);
+				this.setErrorMessage('ERROR');
+				this.setLoading(false);
+				console.log('㊗️ ERROR hydrating');
 			});
 		}
 	};
-	setStatus = (status: Status) => this.status;
 
-	get loading(): boolean {
-		return this.status === Status.LOADING;
-	}
+	setLoading = (val: boolean) => (this.loading = val);
+
 	get error(): boolean {
-		return this.status === Status.ERROR;
+		return this.errorMessage !== '' && !this.loading;
 	}
 	get done(): boolean {
-		return this.status === Status.DONE;
+		return !this.error && !this.loading;
 	}
 
 	setErrorMessage = (msg: string) => (this.errorMessage = msg);

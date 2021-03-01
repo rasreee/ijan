@@ -51,7 +51,7 @@ export default function useLogin() {
 							'\ncontext: useLogin'
 					);
 				authStore.setCurrentUser(user);
-				times.hydrate(user.id);
+
 				if (user.firstName && user.lastName) {
 					setPath('/home');
 				} else {

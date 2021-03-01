@@ -1,6 +1,5 @@
 import { Button } from '@atoms';
 import React, { useEffect, useState } from 'react';
-import useWeekView from './useWeekView';
 
 interface IClockInButton {
 	text: string;

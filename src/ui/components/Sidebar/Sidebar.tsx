@@ -10,9 +10,10 @@ import { equal } from '@shims';
 
 interface ISidebar {
 	path: string;
+	push: (path: string) => Promise<boolean>;
 }
 
-const Sidebar: React.FC<ISidebar> = ({ path }) => {
+const Sidebar: React.FC<ISidebar> = ({ path, push }) => {
 	return (
 		<Container>
 			<IconLink src={tokens.iconPaths.miniBrand} />
@@ -24,6 +25,7 @@ const Sidebar: React.FC<ISidebar> = ({ path }) => {
 					{...route}
 					id={route.path}
 					selected={equal(path, route.path)}
+					onRouteClick={push}
 				/>
 			))}
 		</Container>
