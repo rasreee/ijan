@@ -4,9 +4,9 @@ import { action, makeObservable, observable } from 'mobx';
 export interface ICollectionStore<T> {
 	/** global store */
 	root: RootStore;
-	/** Observable for whether page is loading */
+	/** List of type T */
 	list: T[];
-	/** Action for changing loading state */
+	/** Action for setting entire list */
 	setList: (val: T[]) => T[];
 }
 

@@ -1,3 +1,4 @@
+import { useRootStore } from '@contexts/RootStoreContext';
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 import useAuth from './useAuth';
@@ -14,7 +15,7 @@ export default function useLogin() {
 		}
 	}, [path]);
 
-	const store = useAuthStore();
+	const { authStore, times } = useRootStore();
 	const { getUser } = useUserService();
 	const auth = useAuth();
 	return {
@@ -49,7 +50,8 @@ export default function useLogin() {
 						'Unhandled error for undefined user: ' +
 							'\ncontext: useLogin'
 					);
-				store.setCurrentUser(user);
+				authStore.setCurrentUser(user);
+				times.hydrate(user.id);
 				if (user.firstName && user.lastName) {
 					setPath('/home');
 				} else {

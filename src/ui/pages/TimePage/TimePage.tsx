@@ -3,8 +3,13 @@ import React from 'react';
 import { Container } from './styles';
 import WeekView from '@components/WeekView';
 import TimePageContent from './TimePageContent';
+import { useTimesStore } from '@hooks/data';
 
-const TimePage: React.FC = () => {
+interface ITimePage {
+	currentUser: User;
+}
+
+const TimePage: React.FC<ITimePage> = ({ currentUser }) => {
 	return (
 		<Container>
 			<Heading>Timesheet</Heading>

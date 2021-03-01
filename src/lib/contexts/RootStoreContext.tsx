@@ -1,3 +1,4 @@
+import useTimesService from '@hooks/services/useTimesService';
 import { RootStore } from '@stores';
 import { enableStaticRendering } from 'mobx-react';
 import { createContext, ReactNode, useContext } from 'react';
@@ -18,7 +19,8 @@ export function useRootStore() {
 }
 
 export function RootStoreProvider({ children }: { children: ReactNode }) {
-	const _store = store ?? new RootStore();
+	const timesService = useTimesService();
+	const _store = store ?? new RootStore({ timesService });
 
 	// Create the store once in the client
 	if (!store) store = _store;

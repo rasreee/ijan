@@ -10,3 +10,4 @@ export { default as Image } from './Image';
 
 export { default as Loading } from './Loading';
 export { default as Heading } from './Heading';
+export { default as ErrorMessage } from './ErrorMessage';

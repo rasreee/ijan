@@ -1,3 +1,4 @@
+import { ErrorMessage, Loading } from '@atoms';
 import TimesStore from '@stores/TimesStore';
 import { observer } from 'mobx-react';
 import React from 'react';
@@ -8,6 +9,19 @@ interface ITimeCardToday {
 }
 
 const TimeCardToday: React.FC<ITimeCardToday> = ({ times }) => {
+	if (times.loading) {
+		return (
+			<TodayContainer>
+				<Loading />
+			</TodayContainer>
+		);
+	} else if (times.error) {
+		return (
+			<TodayContainer>
+				<ErrorMessage text={times.errorMessage} />
+			</TodayContainer>
+		);
+	}
 	return (
 		<TodayContainer>
 			{times.list.map((time) => (

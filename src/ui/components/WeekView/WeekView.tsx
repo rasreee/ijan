@@ -6,7 +6,6 @@ import useWeekView from './useWeekView';
 import ClockInButton from './ClockInButton';
 import TimeCard from './TimeCard/TimeCard';
 import { observer } from 'mobx-react';
-import { Row } from '@bases';
 
 const WeekView: React.FC = () => {
 	const vm = useWeekView();

@@ -1,11 +1,11 @@
 import Time from '@models/Time';
 
-export default function mapToTime(data: any): Time {
+export default function mapToTime(id: string, data: DocumentData): Time {
 	return {
-		id: data.id ?? '',
+		id,
 		userId: data.userId ?? '',
 		start: data.start ?? -1,
 		end: data.end ?? -1,
-		period: 1
+		period: data.period ?? 1
 	};
 }

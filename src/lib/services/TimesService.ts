@@ -1,5 +1,6 @@
 import firebase from 'firebase/app';
 import Time from '@models/Time';
+import mapQuerySnapshot from './mapQuerySnapshot';
 
 export default class TimesService {
 	times: firebase.firestore.CollectionReference<firebase.firestore.DocumentData>;
@@ -8,6 +9,12 @@ export default class TimesService {
 	) {
 		this.times = collection;
 	}
+	getAll = async (userId: string): Promise<Time[]> => {
+		const querySnapshot = await this.times
+			.where('userid', '==', userId)
+			.get();
+		return mapQuerySnapshot(querySnapshot);
+	};
 	clockIn = async (userId: string): Promise<Time | undefined> => {
 		if (!userId) return Promise.resolve(undefined);
 		try {
