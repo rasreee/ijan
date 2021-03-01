@@ -27,7 +27,9 @@
 			"@bases": ["./ui/styled/bases"],
 			"@templates": ["./ui/styled/templates"],
 			"@pages": ["./ui/pages"],
-			"@pages/*": ["./ui/pages/*"]
+			"@pages/*": ["./ui/pages/*"],
+			"@models": ["./models"],
+			"@models/*": ["./models/*"]
 		}
 	}
 }
