@@ -1,7 +1,7 @@
 import React, { HTMLAttributes } from 'react';
 
 import { Container } from './styles';
-import TimeCardToday from './TimeCardToday/TimeCardToday';
+import TimeCardToday from './TimeCardToday';
 
 interface ITimeCard extends HTMLAttributes<HTMLDivElement> {}
 

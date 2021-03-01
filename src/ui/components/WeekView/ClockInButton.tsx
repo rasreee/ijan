@@ -11,8 +11,14 @@ const IClockInButton: React.FC<IClockInButton> = ({ clockedIn, onClick }) => {
 	return (
 		<Button
 			primary
-			text={clockedIn ? 'Clock out' : 'Clock in'}
+			text={clockedIn ? 'CLOCK OUT' : 'CLOCK IN'}
 			onClick={onClick}
+			style={{
+				width: '120px',
+				height: '36px',
+				fontSize: '14px',
+				padding: '8px 10px'
+			}}
 		/>
 	);
 };
