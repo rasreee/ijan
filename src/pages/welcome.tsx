@@ -18,12 +18,7 @@ const WelcomePage = () => {
 
 	const router = useRouter();
 
-	if (!authStore.currentUser) {
-		router.push('/');
-		return null;
-	}
-
-	const id = authStore.currentUser.id;
+	const id = authStore.currentUser?.id ?? '';
 
 	const updateState: InputChangeEventHandler = ({ name, value }) => {
 		setState((current) => ({ ...current, [name]: value }));
