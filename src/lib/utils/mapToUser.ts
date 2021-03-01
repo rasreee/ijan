@@ -4,6 +4,7 @@ export function mapToUser(data: any, id: string): User {
 		firstName: data.firstName ?? '',
 		lastName: data.lastName ?? '',
 		createdAt: data.createdAt ?? -1,
-		lastActive: data.lastActive ?? -1
+		lastActive: data.lastActive ?? -1,
+		phoneNumber: data.phoneNumber ?? ''
 	};
 }
